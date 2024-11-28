@@ -123,13 +123,13 @@ for FILE in "${files[@]}"; do
   { set +x; } 2>/dev/null
 done
 
-ZIP_FILE="$LIB_PATH/libmpv-x86_64.zip"
-echo "downloading zip to $ZIP_FILE"
-curl -L "https://github.com/iwestlin/mpv-mac/releases/download/2024-11-18/libmpv-x86_64-45c1c58.zip" -o "$ZIP_FILE"
+# ZIP_FILE="$LIB_PATH/libmpv-x86_64.zip"
+# echo "downloading zip to $ZIP_FILE"
+# curl -L "https://github.com/iwestlin/mpv-mac/releases/download/2024-11-18/libmpv-x86_64-45c1c58.zip" -o "$ZIP_FILE"
 
-echo "$ZIP_FILE downloaded, unzipping..."
-unzip -o -j $ZIP_FILE -i "*.dylib" -d "$LIB_PATH"
-rm -f $ZIP_FILE
+# echo "$ZIP_FILE downloaded, unzipping..."
+# unzip -o -j $ZIP_FILE -i "*.dylib" -d "$LIB_PATH"
+# rm -f $ZIP_FILE
 
 mkdir -p "$EXEC_PATH"
 curl -L "$YT_DLP_DOWNLOAD_PATH" -o "$YT_DLP_PATH"
