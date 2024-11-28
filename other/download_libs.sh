@@ -3,7 +3,7 @@
 PROJECT_NAME='iina'
 
 # universal | arm64 | x86_64
-ARCH="universal"
+ARCH="x86_64"
 # github | iina (use iina to get the binary included in the latest release)
 YT_DLP_SOURCE="github"
 
@@ -122,6 +122,14 @@ for FILE in "${files[@]}"; do
   curl "${DYLIBS_DOWNLOAD_PATH}/${FILE}" >"$LIB_PATH/$FILE"
   { set +x; } 2>/dev/null
 done
+
+ZIP_FILE="libmpv-x86_64.zip"
+echo "downloading $ZIP_FILE"
+curl "https://github.com/iwestlin/mpv-mac/releases/download/2024-11-18/libmpv-x86_64-45c1c58.zip" -o "$ZIP_FILE"
+
+echo "$ZIP_FILE downloaded, unzipping..."
+unzip -o -j $ZIP_FILE -i "*.dylib" -d "LIB_PATH"
+rm -f $ZIP_FILE
 
 mkdir -p "$EXEC_PATH"
 curl -L "$YT_DLP_DOWNLOAD_PATH" -o "$YT_DLP_PATH"
