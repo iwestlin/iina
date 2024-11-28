@@ -128,7 +128,7 @@ echo "downloading zip to $ZIP_FILE"
 curl -L "https://github.com/iwestlin/mpv-mac/releases/download/2024-11-18/libmpv-x86_64-45c1c58.zip" -o "$ZIP_FILE"
 
 echo "$ZIP_FILE downloaded, unzipping..."
-unzip -o -j $ZIP_FILE -i "*.dylib" -d "LIB_PATH"
+unzip -o -j $ZIP_FILE -i "*.dylib" -d "$LIB_PATH"
 rm -f $ZIP_FILE
 
 mkdir -p "$EXEC_PATH"
